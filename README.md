@@ -1,1 +1,2 @@
-# A tour of goのExeciseの解説を記載していきます。
+# A tour of go
+Execiseの解説を記載していきます。
