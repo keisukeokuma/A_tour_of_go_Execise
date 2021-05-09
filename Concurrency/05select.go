@@ -12,7 +12,7 @@ func fibonacci(c, quit chan int) {
 		// ➂xの値をcに送信する。初期値は0。その後x, y = y, x+yの値を加える。
 		case c <- x:
 			x, y = y, x+y
-		// ⑥quitを受信できる場合はquitを出力して終了する。
+		// ⓺quitを受信できる場合はquitを出力して終了する。
 		case <-quit:
 			fmt.Println("quit")
 			return
@@ -31,7 +31,7 @@ func main() {
 			// ➃<-cで受信した値を出力する。
 			fmt.Println(<-c)
 		}
-		// ⑤➃が10回繰り返されたらquitに0を送信する。
+		// ⓹➃が10回繰り返されたらquitに0を送信する。
 		quit <- 0
 	}()
 	// ➁関数呼び出し
