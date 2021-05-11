@@ -24,7 +24,7 @@ func Sqrt(x float64) float64 {
 	}
 
 	// if文で回数と10回以上か未満かを出力する
-	if i > 10 {
+	if i >= 10 {
 		fmt.Printf("反復回数は%d回で10回以上です\n", i)
 	} else {
 		fmt.Printf("反復回数は%d回で10回未満です\n", i)
