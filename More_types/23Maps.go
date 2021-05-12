@@ -1,6 +1,6 @@
 package main
 
-// picパッケージ、stringsパッケージを取得
+// stringsパッケージ、wcパッケージを取得
 import (
 	"strings"
 
@@ -17,15 +17,15 @@ func WordCount(s string) map[string]int {
 	 * strings.Fields関数により、引数で渡された文字列を空白文字ごとに分割し、スライスとして返す
 	 * 空白のみが含まれる場合は空のスライスを返す
 	 */
-	word_list := strings.Fields(s)
+	word_list := strings.Fields(s) // ex) "  a b cc" -> []string{"a", "b", "cc"}
 
-	// mapを作成する。キーはstring型、要素はint型を指定。
-	words := make(map[string]int)
+	// mapを作成する。キーはstring型、値はint型を指定。
+	words := make(map[string]int, len(word_list))
 
-	// rangeで繰り返し処理を実施。word_listの要素のコピーを変数wに定義する。
+	// rangeで繰り返し処理を実施。word_listの値のコピーを変数wに定義する。
 	for _, w := range word_list {
-		// wordsに分割した文字列(w)をキーとした要素を作成し、要素をインクリメントする
-		// mapsは重複を許さないため、同じ単語が出た場合に既存の同じ文字列であるキーの要素にインクリメントする
+		// wordsに分割した文字列(w)をキーとした値を作成し、値をインクリメントする
+		// mapは重複を許さないため、同じ単語が出た場合に既存の同じ文字列であるキーの値にインクリメントする
 		words[w]++
 	}
 	return words
