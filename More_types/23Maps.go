@@ -8,7 +8,7 @@ import (
 )
 
 /**
-* WordCount関数を定義
+* wordCount関数を定義
 * 引数はstring型のsとし、返り値はキーはstring型、値はint型のmapを返す。
  */
 func wordCount(s string) map[string]int {
@@ -33,7 +33,7 @@ func wordCount(s string) map[string]int {
 
 func main() {
 	/**
-	 * wc.Test関数内にはWordCountの計算対象となる文字列と単語の出現回数を計算した正答が記載されている。
+	 * wc.Test関数内にはwordCountの計算対象となる文字列と単語の出現回数を計算した正答が記載されている。
 	 * 正しく単語の出現回数を計算出来た場合は"PASS"に続いて、文字列と計算結果を出力する。
 	 * 計算が失敗した場合は、"FAIL"に続いて計算結果と正答が出力される
 	 */
