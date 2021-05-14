@@ -13,12 +13,13 @@ import (
 // float64型を持つErrNegativeSqrt型を新たに作成。
 type ErrNegativeSqrt float64
 
-// Errorメソッドを実装する
+// Errorメソッドを実装する。
 func (e ErrNegativeSqrt) Error() string {
+	// eをloat64型に変換してfmt.Sprintfで出力する。
 	return fmt.Sprintf("負の値のため計算できません:%v", float64(e))
 }
 
-// Sqrt関数を定義 引数はfloat64型、返り値はfloat64型とerrorとする。
+// Sqrt関数を定義 引数はfloat64型、返り値はfloat64型とerrorインターフェイスを満たすErrNegativeSqrt型を返す
 func Sqrt(x float64) (float64, error) {
 	// xが負の値であったときに、errorにnil以外の値が入るようにする。
 	if x < 0 {
@@ -47,7 +48,20 @@ func Sqrt(x float64) (float64, error) {
 }
 
 func main() {
-	// Sqrt関数を実行
-	fmt.Println(Sqrt(2))
-	fmt.Println(Sqrt(-2))
+	// casesスライスを作成
+	cases := []float64{2, -2}
+	for i, v := range cases {
+		// i+1で繰り返されている回数を表示
+		fmt.Printf("%d 回目。＝＝＝＝＝\n", i+1)
+		var ret float64
+		var err error
+		// err にSqrt(v)の結果を代入し、errがnilであった場合にif文内の処理を実施
+		if ret, err = Sqrt(v); err != nil {
+			// Error()の戻り値を表示
+			fmt.Println(err)
+			continue
+		}
+		// retを表示
+		fmt.Println(ret)
+	}
 }
