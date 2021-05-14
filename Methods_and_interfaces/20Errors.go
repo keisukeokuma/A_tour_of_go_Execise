@@ -10,7 +10,7 @@ import (
  * errorインターフェイスは返り値errorにnil以外が入っていた場合にError()メソッドの内容を実行します。
  */
 
-// float型の変数ErrNegativeSqrtを作成
+// float64型を持つErrNegativeSqrt型を新たに作成。
 type ErrNegativeSqrt float64
 
 // Errorメソッドを実装する
