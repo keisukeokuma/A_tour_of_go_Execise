@@ -12,19 +12,19 @@ import "fmt"
 type IPAddr [4]byte
 
 // IPAddrにインターフェイスfmt.Stringを実装する。
-// fmt.Sprintfと%dを使用することで配列aをstring型に変更して返り値とする
+// IPAddr型の内容をIPアドレス(v4)の表現に直した文字列を返却する
 func (a IPAddr) String() string {
 	return fmt.Sprintf("%d.%d.%d.%d", a[0], a[1], a[2], a[3])
 }
 
 func main() {
 	// mapの作成 キーはstring型、値はIPAddrで処理を行ったstring型とする
-	hosts := map[string]IPAddr{
-		"loopback":  {12, 0, 0, 1},
+	hostMap := map[string]IPAddr{
+		"loopback":  {127, 0, 0, 1},
 		"googleDNS": {8, 8, 8, 8},
 	}
 	// 繰り返し処理を実施。キーをname、値をipとして出力する
-	for name, ip := range hosts {
-		fmt.Printf("%v: %v\n", name, ip)
+	for k, v := range hostMap {
+		fmt.Printf("%v: %v\n", k, v)
 	}
 }
