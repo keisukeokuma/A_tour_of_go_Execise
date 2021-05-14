@@ -18,12 +18,12 @@ func (a IPAddr) String() string {
 }
 
 func main() {
-	// mapの作成 キーはstring型、値はIPAddrで処理を行ったstring型とする
+	// mapの作成 キーはstring型、値はIPAddrでとする。
 	hostMap := map[string]IPAddr{
 		"loopback":  {127, 0, 0, 1},
 		"googleDNS": {8, 8, 8, 8},
 	}
-	// 繰り返し処理を実施。キーをk、値をvとして出力する
+	// 繰り返し処理を実施。キーをk、値をvとして出力する。fmt.Plintln実施時にString()も実施される。
 	for _, v := range hostMap {
 		fmt.Println(v)
 	}
