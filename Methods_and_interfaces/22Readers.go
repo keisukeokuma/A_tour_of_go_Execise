@@ -14,7 +14,7 @@ func (r MyReader) Read(b []byte) (int, error) {
 	for i := range b {
 		b[i] = 'A'
 	}
-	// len(b) bの長さを取得
+	// len(b)とnilを返す。 len(b)はbの長さを取得
 	return len(b), nil
 }
 
